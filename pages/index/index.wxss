@@ -1,8 +1,6 @@
 /**index.wxss**/
-#menu {
 
-}
-
+/** Navigation Bar **/
 .page_row { 
   background-color: #f0f0f0;
   position: fixed;
@@ -12,7 +10,7 @@
   display: flex; 
   flex-direction: row;  
   align-items: center;  
-  z-index: 1;
+  z-index: 3;
 }
 .nav {
   height: 80rpx;
@@ -26,7 +24,6 @@
 .content {
   float: left;
   width: 25%;
-  z-index: 2;
 }
 .on {
   color: blue;
@@ -58,40 +55,78 @@
   padding-bottom: 30rpx;
 }
 
-#map {
-  margin: auto;
-  margin-top: 10px;
-  width: 96%;
-  height: 600rpx;
-  z-index: 0;
-}
+/** Banner Swiper View **/
 .userinfo {
+  top: 30rpx;
   background-color: #dd544f;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
+.banner {
+  color: #f0f0f0;
+  width: 100%;
+}
 .userinfo-avatar {
   width: 128rpx;
   height: 128rpx;
-  margin: 60rpx 20rpx 20rpx;
+  margin: 20rpx 20rpx 5rpx;
   border-radius: 50%;
 }
-
 .userinfo-nickname {
-  color: #aaa;
+  position: absolute;
+  top: 60rpx;
+  width: 100%;
 }
-
+.intro {
+  margin: auto;
+  width: 90%;
+  font-size: 32rpx;
+  padding: 5rpx;
+}
 .usermotto {
-  height: 800px;
+  background-color: white;
   margin-top: 10px;
 }
-.listing {
+.listing_container {
+  font-size: 32rpx;
   width: 100%;
-  text-align: center;
-  height: 100rpx;
+  height: 160rpx;
   padding: 10rpx 5rpx;
   border: 1px solid #d0d0d0;
+}
+.house-img {
+  display: flex;
+  position: relative;
+  height: 0;
+}
+.img {
+  position: relative;
+  border: 2px solid #d0d0d0;
+  width: 25%;
+  height: 150rpx;
+  left: 20rpx;
+  vertical-align: middle;
+}
+.listing {
+  position: relative;
+  width: 70%;
+  height: 150rpx;
+  left: 30%;
+  text-align: left;
+}
+.specs {
+  display: block;
+}
+.size {
+  font-size: 28rpx;
+  color: #808080;
+}
+.price {
+  font-size: 28rpx;
+  color: #dd544f;
+}
+.user-motto {
+  display: block;
 }

@@ -21,21 +21,37 @@
 <view class="container">
   <scroll-view scroll-y="true" style="height: 100%;">
     <!-- 用户信息和产品介绍 -->
-    <view class="userinfo">
-      <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-      <block wx:else>
-        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-      </block>
-    </view>
-    <view class="map_container">
-      <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="markertap"></map>
-  </view>
+    <swiper class="userinfo">
+      <swiper-item class="banner">
+        <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+        <block wx:else>
+          <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+          <text class="userinfo-nickname">欢迎您, {{userInfo.nickName}}</text>
+        </block>
+        <view class="intro">
+          <text>这是一款为纽约留学生们打造的租房买房小程序。若想了解我们的创业团队，请向右滑动。</text>
+        </view>
+      </swiper-item>
+      <swiper-item class="banner">
+        <view class="intro">
+          <text>About Us: HERENYC</text>
+          <text>We are so amazing. Please do contact us! Just hit that fat button below and give us a call:</text>
+          <button>联系客服</button>
+        </view>
+      </swiper-item>
+    </swiper>
 
     <!-- 用这个view来实现tableview -->
     <view class="usermotto">
-      <view class= "listing" wx:for="{{house_list}}" wx:key='{{index}}'>
-        <label>{{item}}</label>
+      <view class= "listing_container" wx:for="{{house_list}}" wx:key='{{index}}'>
+        <view class="house-img">
+         <image class="img" src='../../media/test.jpg'></image>
+        </view>
+        <view class="listing">
+          <label class="specs">{{item}}</label>
+          <label class="specs size">160平米</label>
+          <label class="specs price">1900美元/月</label>
+        </view>
       </view>
 
       <text class="user-motto">{{motto + '\n'}}</text> 

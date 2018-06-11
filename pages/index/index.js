@@ -1,8 +1,6 @@
 //index.js
 //获取应用实例
 const app = getApp();
-var amapFile = require('../../libs/amap-wx.js');
-var markersData = [];
 var index;
 var nav_content_list = [
   ['曼哈顿', '新泽西', '我也不知道还有哪里了'],
@@ -11,7 +9,7 @@ var nav_content_list = [
   ['价格', '满意度', '热度']
 ];
 var house_list = [
-  "你家大门常打开",
+  "纽约欢迎您",
   "北京欢迎你",
   "曼哈顿的大房子",
   "特朗普的shithole",
@@ -29,11 +27,6 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    //地图数据
-    markers: [],
-    latitude: '',
-    longitude: '',
-    textData: {},
     //房产数据清单
     house_list: house_list,
     motto: 'Hello World'
@@ -71,64 +64,8 @@ Page({
       })
     }
   },
-  //点击地图marker事件处理
-  markertap: function (e) {
-    var id = e.markerId;
-    var that = this;
-    that.showMarkerInfo(markersData, id);
-    that.changeMarkerColor(markersData, id);
-  },
-  //显示marker信息事件
-  showMarkerInfo: function (data, i) {
-    var that = this;
-    that.setData({
-      textData: {
-        name: data[i].name,
-        desc: data[i].address
-      }
-    });
-  },
-  //更改marker颜色
-  changeMarkerColor: function (data, i) {
-    var that = this;
-    var markers = [];
-    for (var j = 0; j < data.length; j++) {
-      if (j == i) {
-        data[j].iconPath = null;//"选中 marker 图标的相对路径"
-      } else {
-        data[j].iconPath = null; //"未选中 marker 图标的相对路径"
-      }
-      markers.push(data[j]);
-    }
-    that.setData({
-      markers: markers
-    });
-  },
   //页面初始化
   onLoad: function () {
-    var that = this;
-    //Instantite 高德object
-    var myAmapFun = new amapFile.AMapWX({key: '92957592d1d598dc9f3394fec01e2715'});
-    myAmapFun.getPoiAround({
-      iconPathSelected: null,
-      iconPath: null,
-      success: function (data) {
-        markersData = data.markers;
-        that.setData({
-          markers: markersData
-        });
-        that.setData({
-          latitude: markersData[0].latitude
-        });
-        that.setData({
-          longitude: markersData[0].longitude
-        });
-        that.showMarkerInfo(markersData, 0);
-      },
-      fail: function (info) {
-        wx.showModal({ title: info.errMsg })
-      }
-    })
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

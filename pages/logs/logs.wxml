@@ -1,6 +1,16 @@
 <!--logs.wxml-->
 <view class="container log-list">
-  <block wx:for="{{logs}}" wx:for-item="log">
-    <text class="log-item">{{index + 1}}. {{log}}</text>
-  </block>
+  <!-- 高德地图API控件 -->
+  <view class="map_container">
+    <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="markertap"></map>
+  </view>
+  <view class="map_text">
+    <text class="h1">{{textData.name}}</text>
+    <text>{{textData.desc}}</text>
+  </view>
+  <scroll-view class="list" scroll-y="true" style="height: 100%;">
+    <block wx:for="{{logs}}" wx:key="index" wx:for-item="log">
+      <text class="log-item">{{index + 1}}. {{log}}</text>
+    </block>
+  </scroll-view> 
 </view>

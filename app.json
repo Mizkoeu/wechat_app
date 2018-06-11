@@ -4,7 +4,7 @@
     "pages/logs/logs"
   ],
   "window":{
-    "backgroundColor":"#d45440",
+    "backgroundColor":"#d0d0d0",
     "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#d45440",
     "navigationBarTitleText": "迈克卖房",
@@ -14,6 +14,11 @@
     "list": [{
       "pagePath": "pages/index/index",
       "text": "房源搜索",
+      "iconPath": null,
+      "selectedIconPath": null
+    }, {
+      "pagePath": "pages/logs/logs",
+      "text": "地图搜索",
       "iconPath": null,
       "selectedIconPath": null
     }, {
