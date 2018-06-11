@@ -1,9 +1,19 @@
 //index.js
 //获取应用实例
 const app = getApp()
+var index;
+var nav_content_list = [
+  ['曼哈顿', '新泽西', '我也不知道还有哪里了'],
+  ['整租', '合租', '买房', '我有钱'],
+  ['不限', '1000刀', '2000刀', '我钱多，随便'],
+  ['价格', '满意度', '热度']
+];
 
 Page({
   data: {
+    nav_title: ['区域', '方式', '租金', '筛选'],
+    shownavindex: null,
+    navcontent: null,
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
@@ -14,6 +24,32 @@ Page({
     wx.navigateTo({
       url: '../logs/logs'
     })
+  },
+  click_nav: function(e) {
+    if (index == e.currentTarget.dataset.index && this.data.nav_content != null) {
+      //如果index相同, 收回菜单
+      index = e.currentTarget.dataset.index;
+      this.setData({
+        nav_content: null,
+        shownavindex: null
+      })
+    } else if (this.data.nav_content == null) {
+      //drop-down menu. need to set off animation!
+      console.log('test1');
+      index = e.currentTarget.dataset.index;
+      this.setData({
+        nav_content: nav_content_list[Number(index)],
+        shownavindex: index
+      })
+    } else {
+      //switch menu tab
+      console.log('test2');
+      index = e.currentTarget.dataset.index;
+      this.setData({
+        nav_content: nav_content_list[Number(index)],
+        shownavindex: index
+      })
+    }
   },
   onLoad: function () {
     if (app.globalData.userInfo) {

@@ -1,4 +1,21 @@
 <!--index.wxml-->
+<view class='page_row'>
+  <view class='nav' wx:for='{{nav_title}}' wx:key='index'>
+    <view class="nav_item page_row {{shownavindex == index? 'on' : ''}}" bindtap='click_nav' data-index='{{index}}'>
+      <view class='content'>{{item}}
+        <view class="red {{shownavindex == index? 'icon' : 'no_icon'}}">></view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='nav_content_arr' wx:if='{{nav_content.length}}'>
+  <view style='height:400rpx'>
+    <block wx:for='{{nav_content}}' wx:key='index'>
+      <view class='nav_content'>{{item}}</view>
+    </block>
+  </view>
+  <button class='nav_btn'>确认</button>
+</view>
 <view class="container">
   <scroll-view scroll-y style="height: 100%;">
     <view class="userinfo">
@@ -8,6 +25,7 @@
         <text class="userinfo-nickname">{{userInfo.nickName}}</text>
       </block>
     </view>
+    <map id='map' latitude='30.5928' longitude='114.3055' scale='14'></map>
     <view class="usermotto">
       <text class="user-motto">{{motto + '\n'}}</text> 
       <text>学习些小程序，尽请谅解。</text>
