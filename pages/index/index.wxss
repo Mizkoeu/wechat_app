@@ -3,18 +3,33 @@
 
 }
 
+.page_row { 
+  background-color: #f0f0f0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  overflow: hidden;
+  display: flex; 
+  flex-direction: row;  
+  align-items: center;  
+  z-index: 1;
+}
 .nav {
   height: 80rpx;
   line-height: 80rpx;
   width: 25%;
   text-align: center;
 }
-
 .nav_item {
   border-bottom: 1px solid #999;
 }
 .content {
-  width: 100%;
+  float: left;
+  width: 25%;
+  z-index: 2;
+}
+.on {
+  color: blue;
 }
 .red {
   display: inline-block;
@@ -27,6 +42,8 @@
   transform: rotate(90deg);
 }
 .nav_content_arr {
+  position: relative;
+  top: 80rpx;
   height: 500rpx;
   animation: mymove 1s;
 }
@@ -40,20 +57,17 @@
   border-bottom: 1px solid #f2f2f2;
   padding-bottom: 30rpx;
 }
-.page_row {  
-  width: 100%;  
-  display: flex;  
-  flex-direction: row;  
-  align-items: center;  
-}
 
 #map {
   margin: auto;
-  margin-top: 50px;
-  width: 90%;
-  border: #000 dashed 2px;
+  margin-top: 10px;
+  width: 96%;
+  height: 600rpx;
+  z-index: 0;
 }
 .userinfo {
+  background-color: #dd544f;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,7 +76,7 @@
 .userinfo-avatar {
   width: 128rpx;
   height: 128rpx;
-  margin: 20rpx;
+  margin: 60rpx 20rpx 20rpx;
   border-radius: 50%;
 }
 
@@ -72,5 +86,12 @@
 
 .usermotto {
   height: 800px;
-  margin-top: 200px;
+  margin-top: 10px;
+}
+.listing {
+  width: 100%;
+  text-align: center;
+  height: 100rpx;
+  padding: 10rpx 5rpx;
+  border: 1px solid #d0d0d0;
 }

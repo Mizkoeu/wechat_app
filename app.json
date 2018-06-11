@@ -4,9 +4,28 @@
     "pages/logs/logs"
   ],
   "window":{
-    "backgroundTextStyle":"light",
+    "backgroundColor":"#d45440",
+    "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#d45440",
     "navigationBarTitleText": "迈克卖房",
     "navigationBarTextStyle":"white"
-  }
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "房源搜索",
+      "iconPath": null,
+      "selectedIconPath": null
+    }, {
+      "pagePath": "pages/logs/logs",
+      "text": "找室友",
+      "iconPath": null,
+      "selectedIconPath": null
+    }]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
 }

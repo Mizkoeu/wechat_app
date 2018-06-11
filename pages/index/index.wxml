@@ -1,8 +1,8 @@
 <!--index.wxml-->
 <view class='page_row'>
   <view class='nav' wx:for='{{nav_title}}' wx:key='index'>
-    <view class="nav_item page_row {{shownavindex == index? 'on' : ''}}" bindtap='click_nav' data-index='{{index}}'>
-      <view class='content'>{{item}}
+    <view class="nav_item page_row" bindtap='click_nav' data-index='{{index}}'>
+      <view class="content {{shownavindex == index? 'on' : ''}}">{{item}}
         <view class="red {{shownavindex == index? 'icon' : 'no_icon'}}">></view>
       </view>
     </view>
@@ -16,8 +16,11 @@
   </view>
   <button class='nav_btn'>确认</button>
 </view>
+
+<!-- 程序的主题 -->
 <view class="container">
-  <scroll-view scroll-y style="height: 100%;">
+  <scroll-view scroll-y="true" style="height: 100%;">
+    <!-- 用户信息和产品介绍 -->
     <view class="userinfo">
       <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
       <block wx:else>
@@ -25,8 +28,16 @@
         <text class="userinfo-nickname">{{userInfo.nickName}}</text>
       </block>
     </view>
-    <map id='map' latitude='30.5928' longitude='114.3055' scale='14'></map>
+    <view class="map_container">
+      <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="markertap"></map>
+  </view>
+
+    <!-- 用这个view来实现tableview -->
     <view class="usermotto">
+      <view class= "listing" wx:for="{{house_list}}" wx:key='{{index}}'>
+        <label>{{item}}</label>
+      </view>
+
       <text class="user-motto">{{motto + '\n'}}</text> 
       <text>学习些小程序，尽请谅解。</text>
       <button bindtap='changeMotto'>点击我！</button>
