@@ -49,7 +49,7 @@
         </view>
         <view class="listing">
           <label class="specs">{{item}}</label>
-          <label class="specs size">160平米</label>
+          <label class="specs size">{{area[index]}}平米</label>
           <label class="specs price">1900美元/月</label>
         </view>
       </view>

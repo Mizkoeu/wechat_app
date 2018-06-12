@@ -30,6 +30,12 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     //房产数据清单
     house_list: house_list,
+    area: [Math.floor(Math.random() * 220),
+      Math.floor(Math.random() * 220),
+      Math.floor(Math.random() * 220),
+      Math.floor(Math.random() * 220),
+      Math.floor(Math.random() * 220),
+      Math.floor(Math.random() * 220)],
     motto: 'Hello World'
   },
   //事件处理函数
