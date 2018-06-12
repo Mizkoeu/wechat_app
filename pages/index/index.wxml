@@ -43,7 +43,7 @@
 
     <!-- 用这个view来实现tableview -->
     <view class="usermotto">
-      <view class= "listing_container" wx:for="{{house_list}}" wx:key='{{index}}'>
+      <view data-index='{{index}}' bindtap='selectListing' class= "listing_container" wx:for="{{house_list}}" wx:key='{{index}}'>
         <view class="house-img">
          <image class="img" src='../../media/test.jpg'></image>
         </view>

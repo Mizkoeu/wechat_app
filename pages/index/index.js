@@ -2,6 +2,7 @@
 //获取应用实例
 const app = getApp();
 var index;
+var house_index;
 var nav_content_list = [
   ['曼哈顿', '新泽西', '我也不知道还有哪里了'],
   ['整租', '合租', '买房', '我有钱'],
@@ -63,6 +64,15 @@ Page({
         shownavindex: index
       })
     }
+  },
+  selectListing: function(e) {
+    house_index = Number(e.currentTarget.dataset.index);
+    //wx.showModal({title: String(house_index)});
+    var new_list = house_list;
+    new_list[house_index] = "你点到我了";
+    this.setData({
+      house_list: new_list
+    })
   },
   //页面初始化
   onLoad: function () {
